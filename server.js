@@ -355,7 +355,7 @@ app.use(function(err, req, res, next) {
 });
 
 // var port = normalizePort(process.env.PORT || '5000');
-let port = normalizePort(process.env.PORT || '69');
+const port = normalizePort(process.env.PORT || '69');
 app.set('port', port);
     // .listening(console.log('listening on port 69'));
 
