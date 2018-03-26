@@ -1,0 +1,65 @@
+<html>
+<head>
+    <title>Test Page</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="col-sm-6 col-md-offset-3">
+        <div class="jumbotron">
+            <form action="#" method="post" id="myForm" class="form-horizontal">
+                <input id="name" type="text" name="name" placeholder="Name" class="form-control center-block">
+                <input id="email" type="email" name="email" placeholder="Email" class="form-control center-block">
+                <input type="submit" value="send" class="btn btn-info">
+            </form>
+
+            <button class="btn btn-danger" onclick="storagealert()">Check storage (Alert)</button>
+
+            <button class="btn btn-warning" onclick="locationAlrt()">Windows Location (Console)</button>
+
+
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery-latest.min.js"></script>
+<script type="application/javascript">
+    // your function
+    let my_func = (event) => {
+        event.preventDefault();
+
+        sessionStorage.setItem("lastnam", document.getElementById("name").value );
+        sessionStorage.setItem("email", document.getElementById("email").value );
+
+        alert(sessionStorage.getItem("lastnam"));
+        alert(sessionStorage.getItem("email"));
+
+        window.location = winLocation("/test2.html");
+    };
+
+    // your form
+    let form = document.getElementById("myForm");
+
+    // attach event listener
+    form.addEventListener("submit", my_func, true);
+
+    let storagealert = ()=>{
+        alert(sessionStorage.getItem("lastnam"));
+        alert(sessionStorage.getItem("email"));
+    };
+
+    let winLocation =(sub)=>{
+        let pathArray = window.location.pathname.split( '/' );
+        let newPathname = "";
+        for (i = 0; i < pathArray.length-1; i++) {
+            newPathname += "/";
+            newPathname += pathArray[i];
+        }
+        return newPathname+sub;
+    }
+</script>
+</body>
+</html>

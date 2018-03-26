@@ -23,3 +23,84 @@
     margin: 10px 0;
     outline: 0;
 }
+
+
+@media only screen and (min-width:0px) and (max-width: 320px) {
+    .logon.header .chase.logo {
+        width: 120px;
+    }
+    .logon .logon-box {
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+    .logon .logon-box .input {
+        font-size: 0.85rem;
+        padding: 4px;
+        margin: 8px 0;
+    }
+    .logon .logon-box .jpui.checkbox .checkbox-label {
+        font-size: .675rem;
+    }
+    .logon .jpui.button.primary {
+        margin: 20px 0 20px;
+    }
+    .jpui.button.primary .label {
+        font-size: 0.87rem;
+    }
+    .jpui.label, .jpui.link, .jpui.link .link-anchor {
+        font-size: .675rem;
+    }
+    .footer-container {
+        position: inherit !important;
+    }
+    .footer-container .social-links .follow-us-text {
+        font-size: .725em;
+    }
+    .footer-container .social-links .icon.footer {
+        font-size: .994rem;
+    }
+    .footer-container .footer-links li {
+        font-size: .45625rem;
+    }
+}
+@media only screen and (min-width: 321px) and (max-width: 767px) {
+    .logon.header .chase.logo {
+        width: 120px;
+    }
+    .logon .logon-box {
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+    .logon .logon-box .input {
+        font-size: 0.85rem;
+        padding: 4px;
+        margin: 8px 0;
+    }
+    .logon .logon-box .jpui.checkbox .checkbox-label {
+        font-size: .675rem;
+    }
+    .logon .jpui.button.primary {
+        margin: 20px 0 20px;
+    }
+    .jpui.button.primary .label {
+        font-size: 0.87rem;
+    }
+    .jpui.label, .jpui.link, .jpui.link .link-anchor {
+        font-size: .675rem;
+    }
+    .footer-container {
+        position: inherit !important;
+    }
+    .footer-container .social-links .follow-us-text {
+        font-size: .725em;
+    }
+    .footer-container .social-links .icon.footer {
+        font-size: .994rem;
+    }
+    .footer-container .footer-links li {
+        font-size: .45625rem;
+    }
+}
+@media only screen and (min-width:768px) and (max-width: 991px) {  }
+@media only screen and (min-width: 992px) and (max-width: 1199px) {  }
+@media (min-width: 1200px) {  }
